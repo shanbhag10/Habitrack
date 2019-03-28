@@ -102,7 +102,7 @@ public class JSONParserData extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        MapActivity.setText(categories.toString());
+        //MainActivity.place.setText(categories.toString());
 
     }
 }

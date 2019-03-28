@@ -1,6 +1,7 @@
 package com.example.saurabhshanbhag.habitgooglemaps;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -12,6 +13,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -62,6 +65,18 @@ public class MapActivity extends AppCompatActivity {
 
         getLocationPermission();
 
+        back();
+    }
+
+    public void back() {
+        Button btnMap = findViewById(R.id.backbtn);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getDeviceLocation() {
@@ -109,7 +124,7 @@ public class MapActivity extends AppCompatActivity {
 
 
 
-    private Address getAddress (double latitude, double longitude) {
+/*    private Address getAddress (double latitude, double longitude) {
 
         Address place = null;
 
@@ -129,7 +144,7 @@ public class MapActivity extends AppCompatActivity {
         }
 
         return place;
-    }
+    }*/
 
 
     private void moveCamera(LatLng latLng, float zoom) {
